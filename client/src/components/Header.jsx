@@ -60,7 +60,7 @@ const Header = () => {
             <li className={`${nav ? 'text-xl py-4 flex' : 'sm:text-xl sm:py-0 sm:flex sm:items-center'}`}>
               <MdFavorite size={25} className='mr-4' />
               <NavLink to="/Favorites" className={`sm:text-cyan-400 ${nav ? 'text-cyan-400' : 'sm:text-white'}`}>
-                Favorites
+                Watchlist
               </NavLink>
             </li>
           </ul>

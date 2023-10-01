@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const MoviesPage = () => {
   const [movies, setMovies] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const moviesPerPage = 12; 
+  const moviesPerPage = 12;
 
   // Fetching the Movies from the Backend
   const fetchMovies = async () => {
@@ -47,11 +47,11 @@ const MoviesPage = () => {
             currentMovies.map((movie) => (
               <div
                 key={movie.id}
-                className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105 duration-300 hover:shadow-xl"
+                className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:bg-black hover:bg-opacity-50 hover:shadow-xl"
               >
                 <Link to={`/movies/${movie.id}`}>
                   <img
-                    src={movie.poster_path} // Assuming `poster_path` contains the image URL
+                    src={movie.poster_path}
                     alt={movie.title}
                     className="w-full h-48 object-cover transition-transform hover:scale-110 duration-300"
                   />
@@ -63,7 +63,9 @@ const MoviesPage = () => {
                   >
                     {movie.title}
                   </Link>
-                  <p className="text-sm text-gray-600">
+                  <p
+                    className="text-sm text-gray-600 hover:text-white transition-colors duration-300"
+                  >
                     Released:{' '}
                     {new Date(movie.release_date).toLocaleDateString('en-US', {
                       year: 'numeric',
@@ -85,7 +87,7 @@ const MoviesPage = () => {
           </button>
           <button
             onClick={handleNextPage}
-            disabled={indexOfLastMovie >= movies?.length}
+            disabled={indexOfLastMovie >= (movies?.length || 0)}
             className="bg-blue-500 text-white px-4 py-2 rounded-md"
           >
             Next Page
